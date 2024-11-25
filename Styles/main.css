@@ -21,44 +21,39 @@
 }
 
 * {
-    font-family: 'Readex Pro';
+    font-family: 'Readex Pro', sans-serif;
     line-height: 1.5em;
     box-sizing: border-box;
     color: var(--mainTextColor);
+    margin: 0;
+    padding: 0;
 }
 
 body {
     background-color: var(--mainBgColor);
-}
-
-p, span, li {
-    color: var(--secondaryTextColor);
-    font-size: 1em;
-}
-
-a {
-    text-decoration: none;
-    color: var(--mainLinkColor);
-    font-weight: 500;
-    transition: color 0.3s ease-in-out;
-}
-
-li {
-    line-height: 1.9em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Makes the body occupy full height of the viewport */
+    margin: 0;
 }
 
 #container--main {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 1em;
+    width: 90%; /* Occupy 90% of the screen width */
+    max-width: 1200px; /* Cap the width for large screens */
     background-color: #fff; /* Adds contrast for light theme */
     border-radius: 10px; /* Slightly rounded corners */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
 }
 
-.section--page {
-    padding-top: 1em;
-    padding-bottom: 1em;
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    color: #0da2b8; /* Blue color for h2 headings */
 }
 
 #wrapper--hero {
@@ -70,20 +65,19 @@ li {
 }
 
 #profile-pic {
-    width: 150px;           /* Adjust width */
-    height: 150px;          /* Adjust height */
-    object-fit: cover;      /* Ensure the image fills the square dimensions */
-    border-radius: 0;       /* Remove rounded corners for a square image */
-    border: 2px solid var(--mainLinkColor); /* Add a border for better visibility */
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 0;
+    border: 2px solid var(--mainLinkColor);
 }
 
 #socials--list {
     display: flex;
-    justify-content: center; /* Centers the links horizontally */
-    align-items: center;
-    column-gap: 2em;         /* Add space between links */
+    justify-content: center;
+    column-gap: 2em;
     margin-top: 1em;
-    flex-wrap: wrap;         /* Wraps content on smaller screens */
+    flex-wrap: wrap;
 }
 
 #socials--list a {
@@ -91,28 +85,25 @@ li {
     color: var(--mainLinkColor);
     font-size: 1em;
     transition: color 0.3s ease-in-out;
-    padding: 0.5em 1em;      /* Adds clickable area */
+    padding: 0.5em 1em;
     border: 1px solid var(--mainBorderColor);
-    border-radius: 5px;     /* Rounded corners for links */
-    background-color: #fff; /* Light background for links */
+    border-radius: 5px;
+    background-color: #fff;
     text-align: center;
 }
 
 #socials--list a:hover {
-    color: #ffae42;         /* Change link color on hover */
     background-color: var(--mainLinkColor);
     color: #fff;
 }
 
-#qualifications--list {
-    list-style: none;
+.section--page ul {
+    padding-left: 1.5em;
 }
 
-#wrapper--techstack__items {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
-    font-size: 0.9em;
+.section--page ul li {
+    line-height: 1.8em;
+    color: var(--secondaryTextColor);
 }
 
 .card--techstack {
@@ -120,13 +111,12 @@ li {
     border-radius: 5px;
     padding: 0.5em 1em;
     align-items: center;
-    background-color: #fff; /* Background for individual cards */
+    background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .card--project {
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding: 1em;
     border-top: 1px solid var(--mainBorderColor);
 }
 
@@ -141,8 +131,8 @@ li {
 
 .card--work-history {
     border-left: 1px solid var(--mainBorderColor);
-    margin-top: 3em;
-    margin-bottom: 3em;
+    margin-top: 2em;
+    margin-bottom: 2em;
     padding-left: 2em;
 }
 
@@ -151,19 +141,38 @@ li {
     height: 1px;
 }
 
-@media (max-width: 600px) {
-    #socials--list {
-        flex-direction: column; /* Stack links vertically on small screens */
-        row-gap: 1em;           /* Add spacing between stacked links */
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    #container--main {
+        width: 95%; /* Use 95% of screen width for tablets and smaller devices */
+    }
+
+    h2 {
+        font-size: 1.3em; /* Slightly smaller headings */
     }
 
     #profile-pic {
-        width: 150px;
-        height: 150px;
+        width: 120px; /* Smaller profile picture */
+        height: 120px;
     }
 
-    .card--work-history {
-        border-left: none;
-        padding-left: 0;
+    #socials--list {
+        flex-direction: column; /* Stack links vertically */
+        row-gap: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    #container--main {
+        padding: 1em; /* Reduce padding for very small devices */
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    #socials--list a {
+        font-size: 0.9em; /* Smaller font size for links */
+        padding: 0.4em 0.8em;
     }
 }
